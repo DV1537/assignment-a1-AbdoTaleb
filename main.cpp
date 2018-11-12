@@ -10,7 +10,7 @@
  */
 int main(int argc, const char * argv[])
 {
-    
+    // Elias is a bitch
     int a = 0;
     int sum = 0;
     
