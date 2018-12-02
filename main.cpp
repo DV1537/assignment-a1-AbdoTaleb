@@ -1,5 +1,9 @@
+
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <iomanip>
+using namespace std;
 
 /**
  * The program reads numbers from a file and prints the sum of them
@@ -12,22 +16,50 @@ int main(int argc, const char * argv[])
 {
     
     int a = 0;
-    int sum = 0;
+    double sum = 0;
+    double average;
+    int count =0 ;
+    float *array = new float [count];
+    
+
     
     std::ifstream myReadFile;
-    
     myReadFile.open(argv[1]);
-    
     while (myReadFile >> a)
     {
-        sum += a;
+        count++;
+        sum = sum += a;
+        
     }
+    
     myReadFile.close();
+    std::cout << "The sum is: " << sum << "\n";
+   
+    myReadFile.open(argv[1]);
     
+
+    for (int a = 0 ; a < count ; a++)
+    {
+        myReadFile >> array[a];     
+        
+    }
     
+    average = sum / count;
+    cout << "Avreage is: " << average << endl ;
     
-    std::cout << sum << "\n";
+    for (int i = 0 ; i < count ; i++)
+    {
+        if (average < array[i])
+        cout << "Number bigger than average  " << array[i] << endl;
+        
+    }
     
+
+    myReadFile.close();
+    delete [] array ;
+
+
     return 0;
 }
+
 
